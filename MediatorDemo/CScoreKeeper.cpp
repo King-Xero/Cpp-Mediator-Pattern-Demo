@@ -10,7 +10,7 @@ CScoreKeeper::CScoreKeeper( CNotificationMediator* notification_mediator, int sc
 
 CScoreKeeper::~CScoreKeeper( )
 {
-	//ToDo Dispose of pNotificationHandler
+	pNotificationHandler->Destroy( );
 }
 
 void CScoreKeeper::OnNotificationReceived( int arg )

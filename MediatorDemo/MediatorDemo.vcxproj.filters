@@ -42,6 +42,9 @@
     <ClInclude Include="IReceiveNotifications.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CActionOnDestroy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MediatorDemo.cpp">
@@ -54,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CScoreUpdater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CActionOnDestroy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

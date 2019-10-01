@@ -14,7 +14,7 @@ public:
 
 private:
 	CNotificationMediator* m_pNotificationMediator;
-	void* pNotificationHandler;
+	CActionOnDestroy* pNotificationHandler;
 	std::mutex m_mtxScoreLock;
 	int m_iScore;
 };

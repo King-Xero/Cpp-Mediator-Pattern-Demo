@@ -1,6 +1,6 @@
 ﻿#include "CNotificationMediator.h"
 
-void* CNotificationMediator::SubscribeToScoreChanges( IReceiveNotifications< int >& handler )
+CActionOnDestroy* CNotificationMediator::SubscribeToScoreChanges( IReceiveNotifications< int >& handler )
 {
 	return m_ScoreUpdateChannel.AddSubscriber(handler);
 }

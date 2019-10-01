@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CActionOnDestroy.h" />
     <ClInclude Include="CNotificationChannel.h" />
     <ClInclude Include="CNotificationMediator.h" />
     <ClInclude Include="CScoreKeeper.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="IReceiveNotifications.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CActionOnDestroy.cpp" />
     <ClCompile Include="CNotificationMediator.cpp" />
     <ClCompile Include="CScoreKeeper.cpp" />
     <ClCompile Include="CScoreUpdater.cpp" />

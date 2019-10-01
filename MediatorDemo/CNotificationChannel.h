@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include <vector>
-
 #include "IReceiveNotifications.h"
 #include "HelperFunctions.h"
+#include "CActionOnDestroy.h"
 
 template < typename T >
 class CNotificationChannel
@@ -17,7 +17,7 @@ public:
 	/// Add an object to the list of subscribers that receive notifications via this channel.
 	/// </summary>
 	/// <param name="handler"></param>
-	void* AddSubscriber( IReceiveNotifications< T >& handler );
+	CActionOnDestroy* AddSubscriber( IReceiveNotifications< T >& handler );
 	/// <summary>
 	/// Publish a notification to all subscribers of this channel.
 	/// </summary>
@@ -29,7 +29,7 @@ private:
 };
 
 template < typename T >
-void* CNotificationChannel< T >::AddSubscriber( IReceiveNotifications< T >& handler )
+CActionOnDestroy* CNotificationChannel< T >::AddSubscriber( IReceiveNotifications< T >& handler )
 {
 	if ( HelperFunctions::Contains( m_NotificationHandlers, &handler ) )
 	{
@@ -38,8 +38,11 @@ void* CNotificationChannel< T >::AddSubscriber( IReceiveNotifications< T >& hand
 
 	m_NotificationHandlers.push_back( &handler );
 
-	return nullptr;
-	//ToDo return ActionOnDispose
+	return new CActionOnDestroy([&]( ) -> void
+	{
+		m_NotificationHandlers.erase(std::remove(m_NotificationHandlers.begin(),
+			m_NotificationHandlers.end(), &handler), m_NotificationHandlers.end());
+	});
 }
 
 template < typename T >

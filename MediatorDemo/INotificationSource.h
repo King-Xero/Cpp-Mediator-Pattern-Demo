@@ -1,8 +1,9 @@
 ﻿#pragma once
 #include "IReceiveNotifications.h"
+#include "CActionOnDestroy.h"
 
 class INotificationSource
 {
 public:
-	virtual void* SubscribeToScoreChanges( IReceiveNotifications< int >& handler ) = 0;
+	virtual CActionOnDestroy* SubscribeToScoreChanges( IReceiveNotifications< int >& handler ) = 0;
 };

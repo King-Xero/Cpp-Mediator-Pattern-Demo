@@ -5,7 +5,7 @@
 class CNotificationMediator : INotificationMediator
 {
 public:
-	void* SubscribeToScoreChanges( IReceiveNotifications< int >& handler ) override;
+	CActionOnDestroy* SubscribeToScoreChanges( IReceiveNotifications< int >& handler ) override;
 	void  PublishScoreChange( int scoreDelta ) override;
 private:
 	CNotificationChannel< int > m_ScoreUpdateChannel;
