@@ -5,24 +5,16 @@
 class CScoreKeeper : IReceiveNotifications< int >
 {
 public:
+	
+	CScoreKeeper( CNotificationMediator* notification_mediator, int score );
 
-
-	CScoreKeeper( CNotificationMediator* notification_mediator, int score )
-		: m_pNotificationMediator( notification_mediator ),
-		  m_iScore( score )
-	{
-		pNotificationHandler = m_pNotificationMediator->SubscribeToScoreChanges(*this);
-	}
-
-	~CScoreKeeper( )
-	{
-		//ToDo Dispose of pNotificationHandler
-	}
+	virtual ~CScoreKeeper( );
 
 	void OnNotificationReceived( int arg ) override;
 
 private:
 	CNotificationMediator* m_pNotificationMediator;
 	void* pNotificationHandler;
+	std::mutex m_mtxScoreLock;
 	int m_iScore;
 };

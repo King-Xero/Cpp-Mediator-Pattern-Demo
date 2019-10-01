@@ -9,8 +9,8 @@ public:
 	{
 	}
 
-	void AddScore( int score );
-	void SubtractScore( int score );
+	void AddScore( int score ) const;
+	void SubtractScore( int score ) const;
 
 private:
 	CNotificationMediator* m_pNotificationMediator;
